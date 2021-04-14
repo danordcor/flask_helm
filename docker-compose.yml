@@ -1,0 +1,25 @@
+version: '3'
+services:
+  web:
+    restart: always
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - 8000:8000
+    command: gunicorn -w 4 -t 60 -b 0.0.0.0:8000 app.app:app
+
+  nginx:
+    build: nginx
+    restart: always
+    volumes:
+      - ./nginx/default.conf:/tmp/default.conf
+    environment:
+      - FLASK_SERVER_ADDR=web:8000
+    ports:
+      - "80:80"
+    depends_on:
+      - web
+    command: /app/start.sh
