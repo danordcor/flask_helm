@@ -39,6 +39,13 @@ spec:
             - name: http
               containerPort: 8000
               protocol: TCP
+          env:
+            - name: REDIS_HOST
+              value: {{ .Values.redis.host }}
+            - name: REDIS_PORT
+              value: {{ .Values.redis.port }}
+            - name: REDIS_USE_SSL
+                value: {{ .Values.redis.use_ssl }}
           livenessProbe:
             httpGet:
               path: /

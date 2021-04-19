@@ -12,6 +12,9 @@ services:
     image: flask-helm
     volumes:
       - ./:/usr/src/app
+    env_file:
+      - ./config/environment
+      - ./config/secrets
     ports:
       - 8000:8000
     links:

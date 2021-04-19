@@ -5,7 +5,7 @@
 replicaCount: 2
 
 image:
-  repository: orozdan/flask-helm
+  repository: orozdanacr.azurecr.io/flask-helm
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
@@ -56,6 +56,10 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+redis:
+  host: flask-helm.redis.cache.windows.net
+  port: 6380
+  use_ssl: "true"
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
