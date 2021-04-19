@@ -1,0 +1,3 @@
+REDIS_HOST=flask-helm.redis.cache.windows.net
+REDIS_PORT=6380
+REDIS_USE_SSL=true
