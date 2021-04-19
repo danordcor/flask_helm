@@ -5,7 +5,7 @@
 replicaCount: 2
 
 image:
-  repository: orozdanacr.azurecr.io/flask-helm
+  repository: orozdan/flask-helm
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
